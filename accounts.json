@@ -1,10 +1,5 @@
 [
-      { "username": "tinnaingoo",
-        "password": "123456"},
-        
-      { "username": "tinnaingoo2",
-        "password": "456789"},
-        
-      { "username": "tinnaingoo3", 
-        "password": "789123"}
+    { "username": "tinnaingoo", "password": "123456" },
+    { "username": "tinnaingoo2", "password": "456789" },
+    { "username": "tinnaingoo3", "password": "789123" }
 ]
