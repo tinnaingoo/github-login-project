@@ -49,15 +49,27 @@
             const isValid = data.username === username && data.password === password;
 
             if (isValid) {
+                // Set a flag in sessionStorage indicating that the user is logged in
+                sessionStorage.setItem('loggedIn', 'true');
                 alert("Login successful!");
                 // Redirect to home.html upon successful login
-                window.location.href = "home.html";
+                window.location.href = 'home.html';
             } else {
                 document.getElementById("error-message").style.display = "block";
             }
         } catch (error) {
             console.error("Error fetching or parsing JSON:", error);
         }
+    }
+</script>
+
+<!-- Add the login check script -->
+<script>
+    // Check if the user is logged in
+    const isLoggedIn = sessionStorage.getItem('loggedIn');
+    if (!isLoggedIn) {
+        // If not logged in, redirect to the login page
+        window.location.href = 'index.html';
     }
 </script>
 
