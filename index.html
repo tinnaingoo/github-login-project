@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #login-form {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-form">
+    <h2>Login</h2>
+    <form id="login-form">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="button" onclick="validateLogin()">Login</button>
+    </form>
+
+    <p id="error-message" style="color: red; display: none;">Incorrect username or password.</p>
+</div>
+
+<script>
+    async function validateLogin() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        try {
+            // Fetch the JSON file from the updated URL
+            const response = await fetch("https://raw.githubusercontent.com/tinnaingoo/github-login-project/Page/accounts.json");
+            const data = await response.json();
+
+            // Check if the entered username and password match the data from the JSON file
+            const isValid = data.username === username && data.password === password;
+
+            if (isValid) {
+                alert("Login successful!");
+                // Redirect to home.html upon successful login
+                window.location.href = "home.html";
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        } catch (error) {
+            console.error("Error fetching or parsing JSON:", error);
+        }
+    }
+</script>
+
+</body>
+</html>
