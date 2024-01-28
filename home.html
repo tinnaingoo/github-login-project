@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #welcome-message {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<div id="welcome-message">
+    <h2>Welcome to the Home Page!</h2>
+    <p>This is a simple home page for the logged-in user.</p>
+    <p>Feel free to customize this page to suit your application's needs.</p>
+
+    <!-- Add a logout button -->
+    <button onclick="logout()">Logout</button>
+</div>
+
+<script>
+    // Function to log out the user
+    function logout() {
+        // Remove the flag indicating that the user is logged in
+        sessionStorage.removeItem('loggedIn');
+        // Redirect to the login page
+        window.location.href = 'index.html';
+    }
+</script>
+
+</body>
+</html>
